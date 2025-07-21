@@ -18,7 +18,7 @@ public class main {
         List<CompilationError> allErrors = new ArrayList<>();
 
         // 2. 词法分析
-        CharStream input = CharStreams.fromFileName("./ex1/src/main/resources/test1.txt");//testn.txt---n是1~10,自行修改n的值
+        CharStream input = CharStreams.fromFileName("./ex1/src/main/resources/test1.txt");//testn.txt---n是1~10,自行修改n的值，这里的地址是测试文件地址自行按具体IDE修改
         filename=input.getSourceName();
         SONNXLexer lexer = new SONNXLexer(input);
         lexer.removeErrorListeners();
@@ -54,7 +54,6 @@ public class main {
 
         // 8. 收集语义错误
         for (String error : analyzer.getErrors()) {
-            // 语义错误暂时没有精确位置
             allErrors.add(new CompilationError(
                     CompilationError.ErrorType.SEMANTIC,
                     error,
